@@ -1,14 +1,17 @@
 function OpenAccount() {
-    return ( 
-        <div className="container p-5 text-center mb-5">
-            <div className="row">
-                <h1 className="mt-5">Open a Zerodha account</h1>
-                <p>Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and F&O trades.</p>
-                <button className="p-3 btn btn-primary fs-5 mb-5"  style={{width:"20%",margin:"0 auto"}}>Sign up Now</button>
+    return (
+        <div className="container p-3 p-md-5 text-center mb-5">
+            <div className="row justify-content-center">
+                <div className="col-12 col-md-8">
+                    <h1 className="mt-5 display-6">Open a Zerodha account</h1>
+                    <p className="text-muted">Modern platforms and apps, ₹0 investments, and flat ₹20 intraday trades.</p>
+                    <button className="btn btn-primary fs-5 mt-4 px-5 py-2" style={{ minWidth: "200px" }}>
+                        Sign up Now
+                    </button>
+                </div>
             </div>
-
         </div>
-     );
+    );
 }
 
 export default OpenAccount;
