@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {Link} from 'react-router-dom';
 
+
 const Menu = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const[selectedMenu, setSelectedMenu] = useState(0);
@@ -52,7 +53,7 @@ const Menu = () => {
         <hr />
         <div className="profile"  onClick={handleprofileclick}>
           <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+          <p className="username">ZERODHA_USER</p>
         </div>
       </div>
     </div>

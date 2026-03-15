@@ -10,6 +10,7 @@ import Support from './Landing_page/Support/SupportPage.jsx';
 import NotFound from './Landing_page/NotFound.jsx';
 import Navbar from './Landing_page/Navbar.jsx';
 import Footer from './Landing_page/Footer.jsx';
+import Login from './Landing_page/Signup/Login.jsx';
 
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/product' element={<Product />} />
         <Route path='/pricing' element={<Pricing />} />

@@ -5,69 +5,69 @@ import { ToastContainer, toast } from "react-toastify";
 
 
 
-function SignUp() {
+function Login() {
+
     const navigate = useNavigate();
     const [input, setInput] = useState({
         email: "",
-        username: "",
         password: ""
     });
-    const {email, username, password} = input;
-    const handleError=(error)=>{
+    const { email, password } = input;
+    const handleError = (error) => {
         toast.error(error.response.data.message, {
-            position:"top-center",
-            autoClose:5000,
-            hideProgressBar:false,
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
         });
     };
-    const handleSuccess=(msg)=>{
+    const handleSuccess = (msg) => {
         toast.success(msg, {
-            position:"top-center",});
+            position: "top-center",
+        });
     };
-    const handleSubmit=async(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-            const res=await axios.post("http://localhost:3002/auth/signup", input,{
-                withCredentials:true,
+        try {
+            const res = await axios.post("http://localhost:3002/auth/login", input, {
+                withCredentials: true,
             });
-            if(res.data.success){
+            if (res.data.success) {
                 handleSuccess(res.data.message);
-                navigate("/login");
-            }else{
+                // Redirect to the Dashboard app running on its own port
+                setTimeout(() => {
+                    window.location.href = "http://localhost:5174"; // Make sure this matches your dashboard's port!
+                }, 1000);
+            } else {
                 handleError(res.data.message);
             }
 
-        }catch(error){
+        } catch (error) {
             handleError(error);
+            console.error("Login error:", error);
         }
         setInput({
             email: "",
-            username: "",
             password: ""
         });
     }
     return (
         <div className="container mt-3 p-5 d-flex flex-column align-items-center justify-content-center">
-            <h1 className="text-center mb-3 text-primary">Sign Up</h1>
+            <h1 className="text-center mb-3 text-primary">Login</h1>
             <form className="row g-3 border mt-3 rounded p-4 shadow-lg border-primary-subtle" style={{ maxWidth: "750px", width: "100%" }} onSubmit={handleSubmit}>
                 <div className="col-12">
                     <label htmlFor="inputEmail4" className="form-label">Email</label>
                     <input type="email" className="form-control" id="inputEmail4" placeholder="Enter your email"
-                    value={email} onChange={(e)=>setInput({...input,email:e.target.value})}  required/>
-                </div>
-                <div className="col-12">
-                    <label htmlFor="userName" className="form-label">User Name</label>
-                    <input type="text" className="form-control" id="userName" placeholder="Enter your user name" value={username} onChange={(e)=>setInput({...input,username:e.target.value})} required />
+                        value={email} onChange={(e) => setInput({ ...input, email: e.target.value })} required />
                 </div>
                 <div className="col-12">
                     <label htmlFor="inputPassword4" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="inputPassword4" value={password} onChange={(e)=>setInput({...input,password:e.target.value})} required/>
+                    <input type="password" className="form-control" id="inputPassword4" value={password} onChange={(e) => setInput({ ...input, password: e.target.value })} required />
                 </div>
                 <div className="col-12">
-                    <button type="submit" className="btn btn-primary">Sign Up</button>
+                    <button type="submit" className="btn btn-primary">Login</button>
                 </div>
                 <div className="col-12">
-                    <p>Already have an account? <Link to='/login'>Login</Link></p>
+                    <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
                 </div>
             </form>
             <ToastContainer />
@@ -75,4 +75,4 @@ function SignUp() {
     );
 }
 
-export default SignUp;
+export default Login;

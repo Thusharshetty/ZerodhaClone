@@ -1,10 +1,46 @@
-import {Tooltip, Grow} from '@mui/material';
-import { useState } from 'react';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import{ watchlist} from '../data/data';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import React, { useState, useContext } from "react";
+
+import GeneralContext from "./GeneralContext";
+
+import { Tooltip, Grow } from "@mui/material";
+
+import {
+  BarChartOutlined,
+  KeyboardArrowDown,
+  KeyboardArrowUp,
+  MoreHoriz,
+} from "@mui/icons-material";
+
+import { watchlist } from "../data/data";
+import { DoughnutChart } from "./DoughnutChart";
+
+const labels=watchlist.map((stock) => stock.name);
+const data = {
+  labels,
+  datasets: [
+    {
+      label: 'Stock Price',
+      data: watchlist.map((stock) => stock.price),
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.5)',
+        'rgba(255, 206, 86, 0.5)',
+        'rgba(75, 192, 192, 0.5)',
+        'rgba(153, 102, 255, 0.5)',
+        'rgba(255, 159, 64, 0.5)',
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
 
 const WatchList = () => {
   return (
@@ -21,53 +57,90 @@ const WatchList = () => {
       </div>
 
       <ul className="list">
-        {watchlist.map((stock,index)=>(
-          <WatchListItem stock={stock} key={index} />
-        ))}
+        {watchlist.map((stock, index) => {
+          return <WatchListItem stock={stock} key={index} />;
+        })}
       </ul>
+      <DoughnutChart data={data}></DoughnutChart>
     </div>
   );
 };
 
 export default WatchList;
 
-
 const WatchListItem = ({ stock }) => {
- const [isHovered, setIsHovered] = useState(false);
+  const [showWatchlistActions, setShowWatchlistActions] = useState(false);
 
- const handleEnter=(e)=>{
-  setIsHovered(true);
- }
+  const handleMouseEnter = (e) => {
+    setShowWatchlistActions(true);
+  };
 
- const handleLeave=(e)=>{
-  setIsHovered(false);
- }
-return(
-  <li onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
-    <div className="item">
-      <p className={stock.isDown ? "down" : "up"}>{stock.name}</p>
-      <div className="itemInfo">
-        <span className="percent">{stock.percent}</span>
-        {stock.isDown ? <KeyboardArrowDownIcon className='down'/> : <KeyboardArrowUpIcon className='up'/>}
-        <span className="price">{stock.price}</span>
+  const handleMouseLeave = (e) => {
+    setShowWatchlistActions(false);
+  };
+
+  return (
+    <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className="item">
+        <p className={stock.isDown ? "down" : "up"}>{stock.name}</p>
+        <div className="itemInfo">
+          <span className="percent">{stock.percent}</span>
+          {stock.isDown ? (
+            <KeyboardArrowDown className="down" />
+          ) : (
+            <KeyboardArrowUp className="down" />
+          )}
+          <span className="price">{stock.price}</span>
+        </div>
       </div>
-    </div>
-    {isHovered && <WatchListActions uuid={stock.name} />}
-  </li>
-)
-}
+      {showWatchlistActions && <WatchListActions uid={stock.name} />}
+    </li>
+  );
+};
 
-const WatchListActions=({uuid})=>{
-  return(
+const WatchListActions = ({ uid }) => {
+  const generalContext = useContext(GeneralContext);
+
+  const handleBuyClick = () => {
+    generalContext.openBuyWindow(uid);
+  };
+
+  return (
     <span className="actions">
       <span>
-        <Tooltip title="Buy (B)" placement='top' TransitionComponent={Grow}><button className="buy">Buy</button></Tooltip>
-        <Tooltip title="Sell (S)" placement='top' TransitionComponent={Grow}><button className="sell">Sell</button></Tooltip>
-        <Tooltip title="Analytics (A)" placement='top' TransitionComponent={Grow}><button className="action">
-           <BarChartIcon className="icon"/></button></Tooltip>
-           <Tooltip title="More" placement='top' TransitionComponent={Grow}><button className="action">
-             <MoreHorizIcon className="icon"/></button></Tooltip>
+        <Tooltip
+          title="Buy (B)"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+          onClick={handleBuyClick}
+        >
+          <button className="buy">Buy</button>
+        </Tooltip>
+        <Tooltip
+          title="Sell (S)"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+        >
+          <button className="sell">Sell</button>
+        </Tooltip>
+        <Tooltip
+          title="Analytics (A)"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+        >
+          <button className="action">
+            <BarChartOutlined className="icon" />
+          </button>
+        </Tooltip>
+        <Tooltip title="More" placement="top" arrow TransitionComponent={Grow}>
+          <button className="action">
+            <MoreHoriz className="icon" />
+          </button>
+        </Tooltip>
       </span>
     </span>
-  )
-}
+  );
+};

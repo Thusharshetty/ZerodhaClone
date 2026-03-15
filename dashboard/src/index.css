@@ -49,8 +49,13 @@ code {
   color: #fff;
   margin-right: 2px;
   margin-left: 2px;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+  border-radius: 4px;
 }
 
+.btn:active {
+  transform: scale(0.96); 
+}
 .btn-green {
   background: #4caf50;
 }
@@ -170,6 +175,9 @@ code {
   color: rgb(145, 145, 145);
   font-weight: 300;
   font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .order-table tr th:first-child,
@@ -197,6 +205,7 @@ code {
   font-weight: 400;
   font-size: 0.9rem;
   color: rgb(73, 73, 73);
+  font-weight: 500;
 }
 
 .align-left {
@@ -571,7 +580,8 @@ hr {
   height: 10vh;
   display: flex;
   align-items: center;
-  box-shadow: 0px 0px 4px 2px rgb(236, 235, 235);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #f1f1f1;
   box-sizing: border-box;
   z-index: 9;
 }
@@ -636,7 +646,8 @@ hr {
   flex-basis: 32%;
   height: 100%;
   box-sizing: border-box;
-  box-shadow: 0px 0px 4px 1px rgb(236, 235, 235);
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.02);
+  border-right: 1px solid #f1f1f1;
   overflow-y: auto;
   position: relative;
 }
@@ -676,6 +687,7 @@ hr {
   border-bottom: 0.8px solid rgb(235, 234, 234);
   padding: 12px 10px 12px 14px;
   position: relative;
+  transition: background-color 0.2s ease;
 }
 
 .item {
@@ -843,3 +855,48 @@ hr {
 }
 
 
+/* Tablet and Mobile adjustments */
+@media (max-width: 900px) {
+  /* Stack the main layout */
+  .dashboard-container {
+    flex-direction: column;
+    height: auto; /* Remove the 90vh limit */
+  }
+
+  /* Make sidebars and content take full width */
+  .watchlist-container, 
+  .content, 
+  .menu-container, 
+  .indices-container {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  /* Adjust the fixed watchlist bottom bar */
+  .watchlist-number {
+    width: 100%;
+    position: relative; /* Stop it from floating awkwardly */
+  }
+
+  /* Make the top bar stack or wrap */
+  .topbar-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 0;
+  }
+}
+
+/* Mobile specific fixes for tables */
+@media (max-width: 600px) {
+  .order-table, 
+  .table-container {
+    overflow-x: auto; /* Allows tables to scroll horizontally instead of squashing */
+    display: block;
+    white-space: nowrap;
+  }
+  
+  /* Hide text on menus, just show icons (requires adding icons to React) */
+  .menus p {
+    font-size: 0.7rem;
+  }
+}
