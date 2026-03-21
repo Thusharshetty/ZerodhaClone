@@ -50,4 +50,9 @@ app.post("/newOrder", async (req,res)=>{
     res.send({message:"Order created successfully"});
 });
 
+app.get("/allorders",async(req,res)=>{
+    let allOrders=await OrderModel.find({});
+    res.json(allOrders);
+})
+
 app.use("/auth",authRoute);

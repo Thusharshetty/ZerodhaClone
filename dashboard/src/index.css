@@ -900,3 +900,23 @@ hr {
     font-size: 0.7rem;
   }
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1rem;
+  color: rgb(150, 150, 150);
+  font-weight: 300;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1rem;
+  color: rgb(231, 76, 60);
+  font-weight: 300;
+}

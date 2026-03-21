@@ -5,12 +5,21 @@ import { positions } from "../data/data";
 
 const Positions = () => {
   let[positionsData, setPositionsData] = useState([]);
+  let[isLoading, setIsLoading] = useState(true);
+  let[error,setError] = useState(null); 
   useEffect(()=>{
     axios.get("http://localhost:3002/allpositions")
     .then((response) => {
       setPositionsData(response.data);
-    })
+      setIsLoading(false);
+    }).catch((err) => {
+      setError("Failed to fetch positions. Is the server running?: " + err.message);
+      setIsLoading(false);
+    });
   },[])
+  if(isLoading) return <div className="loading">Loading positions...</div>;
+  if(error) return <div className="error">{error}</div>;
+
   return (
     <>
       <h3 className="title">Positions ({positionsData.length})</h3>

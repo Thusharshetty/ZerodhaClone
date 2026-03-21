@@ -5,12 +5,22 @@ import { VerticalGraph } from "./verticalGraph";
 
 const Holdings = () => {
   let[holdingsData, setHoldingsData] = useState([]);
+  let[isLoading, setIsLoading] = useState(true);
+  let[error, setError] = useState(null);
   useEffect(()=>{
     axios.get("http://localhost:3002/allholdings")
     .then((response) => {
       setHoldingsData(response.data);
+      setIsLoading(false);
     })
+    .catch((err) => {
+      setError("Failed to fetch holdings. Is the server running?: " + err.message);
+      setIsLoading(false);
+    });
   },[]);
+
+  if(isLoading) return <div className="loading">Loading holdings...</div>;
+  if(error) return <div className="error">{error}</div>;
 const labels=holdingsData.map((subArray)=>subArray.name);
 const data = {
   labels,

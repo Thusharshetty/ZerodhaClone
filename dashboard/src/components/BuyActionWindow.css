@@ -218,4 +218,10 @@
     background: #9b9b9b;
     color: #fff;
   }
-  
+  .btn-red {
+  background: #e74c3c;
+}
+
+.btn-red:hover {
+  background: #f1948a;
+}
