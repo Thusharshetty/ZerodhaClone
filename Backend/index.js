@@ -15,8 +15,8 @@ const PORT=process.env.PORT||3002;
 const uri=process.env.MONGO_URL;
 app.use(cors(
     {
-    origin: ['http://localhost:5173', 'http://localhost:5174','https://zerodha-frontend.vercel.app',    
-    /\.vercel\.app$/,// allows ANY vercel.app subdomain
+    origin: ['http://localhost:5173', 'http://localhost:5174','https://zerodha-clone-rho-five.vercel.app',
+    'https://zerodha-clone-dashboard-indol.vercel.app'   
     ] ,
     credentials: true              
 }
