@@ -3,7 +3,7 @@ require("dotenv").config();
 const jwt=require("jsonwebtoken");
 
 module.exports.userVerification=async(req,res)=>{
-    const token=req.cookies.token;
+    const token=req.cookies.token||req.headers.authorization?.split(" ")[1]; // "Bearer TOKEN"
     if(!token){
         return res.status(401).json({ status: false });
     }

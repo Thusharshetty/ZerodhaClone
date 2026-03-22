@@ -32,6 +32,9 @@ function Login() {
                 withCredentials: true,
             });
             if (res.data.success) {
+
+               // Save token to localStorage
+                localStorage.setItem("token", res.data.token);
                 handleSuccess(res.data.message);
                 // Redirect to the Dashboard app running on its own port
                 setTimeout(() => {

@@ -17,9 +17,7 @@ const Menu = () => {
   }
 
    const handleLogout = async () => {
-    await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {}, {
-      withCredentials: true,
-    });
+     localStorage.removeItem("token");
     window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/login`;
   };
 

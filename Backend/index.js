@@ -57,9 +57,5 @@ app.get("/allorders",async(req,res)=>{
     res.json(allOrders);
 });
 
-app.post("/auth/logout",(req,res)=>{
-    res.cookie("token","", { expires: new Date(0) });
-    res.json({ message: "Logged out successfully" });
-});
 
 app.use("/auth",authRoute);
