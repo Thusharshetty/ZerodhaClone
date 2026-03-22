@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
 import { Toaster } from "react-hot-toast";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -11,7 +12,10 @@ root.render(
     <BrowserRouter>
       <Toaster position="top-right" />
       <Routes>
-        <Route path="/*" element={<Home />} />
+        <Route path="/*" element={
+          <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

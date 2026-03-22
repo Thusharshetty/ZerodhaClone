@@ -2,11 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { holdings } from "../data/data";
+import useAuth from "../hooks/useAuth";
 
 const Summary = () => {
    const [holdingsData, setHoldingsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const {username} = useAuth();
 
   useEffect(() => {
     axios.get("http://localhost:3002/allholdings")
@@ -45,7 +47,7 @@ const Summary = () => {
   return (
     <>
       <div className="username">
-        <h6>Hi, User!</h6>
+        <h6>Hi {username || "User"}!</h6>
         <hr className="divider" />
       </div>
 

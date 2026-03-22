@@ -26,6 +26,7 @@ const Positions = () => {
 
       <div className="order-table">
         <table>
+          <thead>
           <tr>
             <th>Product</th>
             <th>Instrument</th>
@@ -35,6 +36,8 @@ const Positions = () => {
             <th>P&L</th>
             <th>Chg.</th>
           </tr>
+          </thead>
+          <tbody>
           {positionsData.map((stock, index) => {
             const curValue = stock.qty * stock.price;
             const isProfit = curValue - stock.qty * stock.avg >= 0.0;
@@ -52,9 +55,8 @@ const Positions = () => {
                 <td className={dayClass}>{stock.day}</td>
               </tr>
             )
-          })};
-
-
+          })}
+          </tbody>
         </table>
       </div>
     </>

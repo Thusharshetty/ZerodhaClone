@@ -928,3 +928,153 @@ hr {
   font-weight: 300;
   margin-top: 20px;
 }
+
+.profile-container {
+  position: relative;
+  margin-left: 20px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #f1f1f1;
+  border-radius: 6px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+  min-width: 120px;
+  padding: 6px 0;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 0.85rem;
+  color: rgb(231, 76, 60);
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.logout-btn:hover {
+  background: rgb(255, 245, 245);
+}
+
+/* ── Responsiveness ── */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .dashboard-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .watchlist-container,
+  .content {
+    flex-basis: 100%;
+    width: 100%;
+    border-right: none;
+  }
+
+  .watchlist-container {
+    height: 400px;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .topbar-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 0;
+  }
+
+  .indices-container {
+    flex-basis: 100%;
+    border-right: none;
+    border-bottom: 1px solid #f1f1f1;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .menu-container {
+    flex-basis: 100%;
+    padding: 8px 16px;
+  }
+
+  .menus ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .menus li {
+    margin-right: 16px;
+  }
+
+  .menu {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .menus {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .menus ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .menus li {
+    margin-right: 8px;
+  }
+
+  .order-table {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .data {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .data hr {
+    display: none;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .col {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .profile .username {
+    display: none; 
+  }
+
+  .indices-container {
+    gap: 20px;
+    padding: 8px 12px;
+  }
+}
+
+.no-results {
+  text-align: center;
+  color: rgb(180, 180, 180);
+  font-size: 0.85rem;
+  font-weight: 300;
+  margin-top: 20px;
+}

@@ -53,6 +53,11 @@ app.post("/newOrder", async (req,res)=>{
 app.get("/allorders",async(req,res)=>{
     let allOrders=await OrderModel.find({});
     res.json(allOrders);
-})
+});
+
+app.post("/auth/logout",(req,res)=>{
+    res.cookie("token","", { expires: new Date(0) });
+    res.json({ message: "Logged out successfully" });
+});
 
 app.use("/auth",authRoute);

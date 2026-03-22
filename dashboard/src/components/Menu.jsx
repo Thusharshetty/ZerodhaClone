@@ -1,10 +1,13 @@
 import { useState } from "react";
-import {Link} from 'react-router-dom';
-
+import {Link,} from 'react-router-dom';
+import useAuth from "../hooks/useAuth";
+import axios from "axios";
+import "../index.css";
 
 const Menu = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const[selectedMenu, setSelectedMenu] = useState(0);
+  const {username} = useAuth();
 
   const handleMenuclick=(idx)=>{
     setSelectedMenu(idx);
@@ -12,6 +15,13 @@ const Menu = () => {
   const handleprofileclick=(idx)=>{
     setIsProfileOpen(!isProfileOpen);
   }
+
+   const handleLogout = async () => {
+    await axios.post("http://localhost:3002/auth/logout", {}, {
+      withCredentials: true,
+    });
+    window.location.href = "http://localhost:5173/login";
+  };
 
   return (
     <div className="menu-container">
@@ -51,9 +61,20 @@ const Menu = () => {
           </li>
         </ul>
         <hr />
-        <div className="profile"  onClick={handleprofileclick}>
-          <div className="avatar">ZU</div>
-          <p className="username">ZERODHA_USER</p>
+         <div className="profile-container">
+          <div className="profile" onClick={handleprofileclick}>
+            <div className="avatar">{username ? username.charAt(0).toUpperCase() : "Z"}</div>
+            <p className="username">{username || "ZERODHA_USER"}</p>
+          </div>
+
+          
+          {isProfileOpen && (
+            <div className="profile-dropdown">
+              <button className="logout-btn" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

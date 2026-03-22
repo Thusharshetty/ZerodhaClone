@@ -70,6 +70,7 @@ const doughnutData = {
 
       <div className="order-table">
         <table>
+          <thead>
           <tr>
             <th>Instrument</th>
             <th>Qty.</th>
@@ -80,6 +81,8 @@ const doughnutData = {
             <th>Net chg.</th>
             <th>Day chg.</th>
           </tr>
+          </thead>
+          <tbody>
           {holdingsData.map((stock, index) =>{
              const curValue=stock.qty*stock.price;
              const isProfit=curValue - stock.qty * stock.avg >=0.0;
@@ -98,7 +101,8 @@ const doughnutData = {
                 <td className={dayClass}>{stock.day}</td>
               </tr>
              )
-          })};
+          })}
+          </tbody>
         </table>
       </div>
 

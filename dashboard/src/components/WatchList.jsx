@@ -15,9 +15,11 @@ import {
 import { watchlist } from "../data/data";
 
 
+
 const WatchList = () => {
-   const [searchQuery, setSearchQuery] = useState("");
-   const filteredList=watchlist.filter((stock)=>stock.name.toUpperCase().includes(searchQuery.toUpperCase()));
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredList = watchlist.filter((stock) => stock.name.toUpperCase().includes(searchQuery.toUpperCase()));
   return (
     <div className="watchlist-container">
       <div className="search-container">
