@@ -20,7 +20,7 @@ const Menu = () => {
     await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {}, {
       withCredentials: true,
     });
-    window.location.href = "http://localhost:5173/login";
+    window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/login`;
   };
 
   return (

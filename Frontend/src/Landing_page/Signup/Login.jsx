@@ -35,7 +35,7 @@ function Login() {
                 handleSuccess(res.data.message);
                 // Redirect to the Dashboard app running on its own port
                 setTimeout(() => {
-                    window.location.href = "http://localhost:5174"; 
+                    window.location.href = import.meta.env.VITE_DASHBOARD_URL; 
                 }, 1000);
             } else {
                 handleError(res.data.message);

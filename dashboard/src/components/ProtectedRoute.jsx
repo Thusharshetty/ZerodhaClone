@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }) => {
     if(loading) return <div className="loading">Verifying session...</div>;
 
      if (!isAuthenticated) {
-        window.location.href = "http://localhost:5173/login";
+        window.location.href = `${import.meta.env.VITE_FRONTEND_URL}/login`;
         return null;
      }
       return children;
