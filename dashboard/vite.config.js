@@ -4,14 +4,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    proxy: {
-      // When frontend calls /api/finance/...
-      // Vite secretly forwards it to Yahoo Finance
-      '/api/finance': {
-        target: 'https://query1.finance.yahoo.com',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/finance/, ''),
-      },
-    },
+    // proxy: {
+    //   // When frontend calls /api/finance/...
+    //   // Vite secretly forwards it to Yahoo Finance
+    //   '/api/finance': {
+    //     target: 'https://query1.finance.yahoo.com',
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/api\/finance/, ''),
+    //   },
+    // },
   },
 })

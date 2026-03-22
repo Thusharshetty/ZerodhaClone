@@ -28,14 +28,14 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:3002/auth/login", input, {
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, input, {
                 withCredentials: true,
             });
             if (res.data.success) {
                 handleSuccess(res.data.message);
                 // Redirect to the Dashboard app running on its own port
                 setTimeout(() => {
-                    window.location.href = "http://localhost:5174"; // Make sure this matches your dashboard's port!
+                    window.location.href = "http://localhost:5174"; 
                 }, 1000);
             } else {
                 handleError(res.data.message);

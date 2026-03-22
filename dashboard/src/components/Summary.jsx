@@ -4,6 +4,7 @@ import axios from "axios";
 import { holdings } from "../data/data";
 import useAuth from "../hooks/useAuth";
 
+
 const Summary = () => {
    const [holdingsData, setHoldingsData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +12,7 @@ const Summary = () => {
   const {username} = useAuth();
 
   useEffect(() => {
-    axios.get("http://localhost:3002/allholdings")
+    axios.get(`${import.meta.env.VITE_API_URL}/allholdings`)
       .then((response) => {
         setHoldingsData(response.data);
         setLoading(false);

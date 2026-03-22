@@ -8,7 +8,7 @@ const useAuth = () => {
 
     useEffect(()=>{
         axios
-      .get("http://localhost:3002/auth/verify", {
+      .get(`${import.meta.env.VITE_API_URL}/auth/verify`, {
         withCredentials: true, // sends cookie with request
       }).then((res)=>{
         if(res.data.status){

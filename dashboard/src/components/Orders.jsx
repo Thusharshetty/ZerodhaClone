@@ -9,7 +9,7 @@ const Orders = () => {
   let[error, setError] = useState(null);
 
   useEffect(()=>{
-    axios.get("http://localhost:3002/allorders")
+    axios.get(`${import.meta.env.VITE_API_URL}/allorders`)
     .then((res)=>{
       setOrdersData(res.data);
       setIsLoading(false);

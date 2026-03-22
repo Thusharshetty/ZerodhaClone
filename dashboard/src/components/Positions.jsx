@@ -8,7 +8,7 @@ const Positions = () => {
   let[isLoading, setIsLoading] = useState(true);
   let[error,setError] = useState(null); 
   useEffect(()=>{
-    axios.get("http://localhost:3002/allpositions")
+    axios.get(`${import.meta.env.VITE_API_URL}/allpositions`)
     .then((response) => {
       setPositionsData(response.data);
       setIsLoading(false);

@@ -9,7 +9,7 @@ const Holdings = () => {
   let[isLoading, setIsLoading] = useState(true);
   let[error, setError] = useState(null);
   useEffect(()=>{
-    axios.get("http://localhost:3002/allholdings")
+    axios.get(`${import.meta.env.VITE_API_URL}/allholdings`)
     .then((response) => {
       setHoldingsData(response.data);
       setIsLoading(false);
