@@ -666,7 +666,7 @@ hr {
   padding: 15px 20px;
   font-size: 0.9rem;
   font-weight: 400;
-  color: rgb(241, 241, 241);
+  color: rgb(0, 0, 0);
   border-bottom: 0.8px solid rgb(235, 234, 234);
 }
 
@@ -919,4 +919,12 @@ hr {
   font-size: 1rem;
   color: rgb(231, 76, 60);
   font-weight: 300;
+}
+
+.no-results {
+  text-align: center;
+  color: rgb(231, 76, 60);
+  font-size: 0.85rem;
+  font-weight: 300;
+  margin-top: 20px;
 }

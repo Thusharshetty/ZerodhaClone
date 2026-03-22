@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import GeneralContext from "./GeneralContext";
 
 import { Tooltip, Grow } from "@mui/material";
+import '../index.css'
 
 import {
   BarChartOutlined,
@@ -43,6 +44,8 @@ const data = {
 };
 
 const WatchList = () => {
+   const [searchQuery, setSearchQuery] = useState("");
+   const filteredList=watchlist.filter((stock)=>stock.name.toUpperCase().includes(searchQuery.toUpperCase()));
   return (
     <div className="watchlist-container">
       <div className="search-container">
@@ -52,15 +55,20 @@ const WatchList = () => {
           id="search"
           placeholder="Search eg:infy, bse, nifty fut weekly, gold mcx"
           className="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <span className="counts"> {watchlist.length} / 50</span>
+        <span className="counts"> {filteredList.length} / 50</span>
       </div>
 
       <ul className="list">
-        {watchlist.map((stock, index) => {
+        {filteredList.map((stock, index) => {
           return <WatchListItem stock={stock} key={index} />;
         })}
       </ul>
+      {filteredList.length === 0 && (
+        <p className="no-results">No stocks found for "{searchQuery}"</p>
+      )}
       <DoughnutChart data={data}></DoughnutChart>
     </div>
   );
