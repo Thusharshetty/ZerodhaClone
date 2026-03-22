@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import axios from "axios";
 
@@ -19,7 +20,11 @@ const BuyActionWindow = ({ uid , mode }) => {
       qty: stockQuantity,
       price: stockPrice,
       mode: mode,
-    });
+    }).then(()=>{
+      toast.success(`${mode} order placed for ${stockQuantity} share(s) of ${uid}!`);
+    }).catch(()=>{
+      toast.error("Failed to place order. Try again!");
+    })
 
    mode==="BUY"? generalContext.closeBuyWindow() : generalContext.closeSellWindow();
   };

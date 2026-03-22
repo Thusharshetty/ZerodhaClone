@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import { holdings } from "../data/data";
 import axios from 'axios';
 import { VerticalGraph } from "./verticalGraph";
+import { DoughnutChart } from "./DoughnutChart";
 
 const Holdings = () => {
   let[holdingsData, setHoldingsData] = useState([]);
@@ -28,11 +29,41 @@ const data = {
     {
       label: 'Stock Price',
       data: holdingsData.map((stock) => stock.price),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      backgroundColor: 'rgba(150, 214, 156, 0.8)',
     }
   ],
 };
 
+
+
+
+
+const doughnutData = {
+  labels: holdingsData.map((stock) => stock.name),
+  datasets: [
+    {
+      label: "Portfolio Distribution",
+      data: holdingsData.map((stock) => stock.qty * stock.price),
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.5)",
+        "rgba(54, 162, 235, 0.5)",
+        "rgba(255, 206, 86, 0.5)",
+        "rgba(75, 192, 192, 0.5)",
+        "rgba(153, 102, 255, 0.5)",
+        "rgba(255, 159, 64, 0.5)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
   return (
     <>
       <h3 className="title">Holdings ({holdingsData.length})</h3>
@@ -90,6 +121,18 @@ const data = {
         </div>
       </div>
       <VerticalGraph data={data}></VerticalGraph>
+
+      <div style={{ width: "50%", margin: "5% auto" }}>
+  <h4 style={{ 
+    textAlign: "center", 
+    fontWeight: "300", 
+    color: "rgb(71,71,71)",
+    marginBottom: "4%"
+  }}>
+    Portfolio Distribution
+  </h4>
+  <DoughnutChart data={doughnutData} />
+</div>
     </>
   );
 };
