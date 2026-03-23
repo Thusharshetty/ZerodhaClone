@@ -2,7 +2,7 @@
 
 A full-stack stock trading dashboard inspired by Zerodha's Kite platform, built with the MERN stack. Features live market data, JWT authentication, portfolio analytics, and real-time order management.
 
-🔗 **Live Demo:** [Frontend](https://zerodha-clone-rho-five.vercel.app) | [Dashboard](https://zerodha-clone-dashboard-indol.vercel.app)
+**Live Demo:** [Frontend](https://zerodha-clone-rho-five.vercel.app) | [Dashboard](https://zerodha-clone-dashboard-indol.vercel.app)
 
 ---
 
