@@ -1,4 +1,4 @@
-# 📈 Zerodha Clone — Full Stack Trading Dashboard
+# Zerodha Clone — Full Stack Trading Dashboard
 
 A full-stack stock trading dashboard inspired by Zerodha's Kite platform, built with the MERN stack. Features live market data, JWT authentication, portfolio analytics, and real-time order management.
 
@@ -6,7 +6,7 @@ A full-stack stock trading dashboard inspired by Zerodha's Kite platform, built 
 
 ---
 
-## 🖥️ Screenshots
+## Screenshots
 
 > Dashboard — Live NIFTY/SENSEX, Holdings, P&L Summary
 
@@ -21,21 +21,21 @@ A full-stack stock trading dashboard inspired by Zerodha's Kite platform, built 
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔐 **JWT Authentication** — Signup, Login, Protected Routes
-- 📊 **Live Market Data** — Real-time NIFTY 50 & SENSEX via Yahoo Finance API
-- 💼 **Portfolio Dashboard** — Dynamic holdings, P&L, current value from MongoDB
-- 📋 **Order Management** — Place Buy/Sell orders, view order history
-- 🔍 **Watchlist Search** — Filter stocks in real time
-- 🔔 **Toast Notifications** — Instant feedback on order placement
-- 📉 **Charts** — Bar chart (Holdings) + Doughnut chart (Portfolio distribution)
-- 📱 **Responsive Design** — Works on desktop, tablet, and mobile
-- 🚪 **Logout** — Clears token, redirects to login
+-  **JWT Authentication** — Signup, Login, Protected Routes
+-  **Live Market Data** — Real-time NIFTY 50 & SENSEX via Yahoo Finance API
+-  **Portfolio Dashboard** — Dynamic holdings, P&L, current value from MongoDB
+-  **Order Management** — Place Buy/Sell orders, view order history
+-  **Watchlist Search** — Filter stocks in real time
+-  **Toast Notifications** — Instant feedback on order placement
+-  **Charts** — Bar chart (Holdings) + Doughnut chart (Portfolio distribution)
+-  **Responsive Design** — Works on desktop, tablet, and mobile
+-  **Logout** — Clears token, redirects to login
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -55,7 +55,7 @@ A full-stack stock trading dashboard inspired by Zerodha's Kite platform, built 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ZerodhaClone/
@@ -97,7 +97,7 @@ ZerodhaClone/
 
 ---
 
-## 🚀 Getting Started (Local Setup)
+##  Getting Started (Local Setup)
 
 ### Prerequisites
 - Node.js v18+
@@ -164,7 +164,7 @@ npm run dev -- --port 5174
 
 ---
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -179,7 +179,7 @@ npm run dev -- --port 5174
 
 ---
 
-## 🌐 Deployment
+##  Deployment
 
 | Service | Platform | URL |
 |---------|----------|-----|
@@ -190,7 +190,7 @@ npm run dev -- --port 5174
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Thushar Shetty**
 - B.Tech Computer Science, Canara Engineering College (2027)
@@ -198,7 +198,7 @@ npm run dev -- --port 5174
 
 ---
 
-## 📝 License
+##  License
 
 This project is for educational purposes only.
 This is **not** affiliated with or endorsed by Zerodha Broking Ltd.
