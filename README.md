@@ -9,13 +9,12 @@ A full-stack stock trading dashboard inspired by Zerodha's Kite platform, built 
 ## Screenshots
 
 > Dashboard — Live NIFTY/SENSEX, Holdings, P&L Summary
-
-![Dashboard]<img width="1911" height="1049" alt="image" src="https://github.com/user-attachments/assets/0fc0338d-b6fa-46a1-bd2c-d55813f65e0d" />
+<img width="1911" height="1049" alt="image" src="https://github.com/user-attachments/assets/0fc0338d-b6fa-46a1-bd2c-d55813f65e0d" />
 )
 
 > Holdings — Portfolio distribution with charts
 
-![Holdings]<img width="1316" height="928" alt="image" src="https://github.com/user-attachments/assets/0d22f261-d57e-47b0-a5ed-9f4c7297fd2b" />
+<img width="1316" height="928" alt="image" src="https://github.com/user-attachments/assets/0d22f261-d57e-47b0-a5ed-9f4c7297fd2b" />
 
 
 
